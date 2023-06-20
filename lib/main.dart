@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'Data.dart';
+import 'Gallery.dart';
 
 void main()
 {
@@ -17,7 +19,22 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(backgroundColor: Colors.orange,title: Text("Images",style: TextStyle(fontSize: 36,color: Colors.black)),),
-      body: ListTile(),
+      body: ListView.builder(
+        itemCount: 2,
+        itemBuilder: (context, index) {
+        return Card(
+          child: ListTile(onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return Gallery(index);
+            },));
+          },
+            tileColor: Colors.orange,
+            leading: CircleAvatar(backgroundImage: AssetImage(Data.main_image[index])),
+            title: Text(Data.Title[index],style: TextStyle(fontSize: 24),),
+            subtitle: Text("Total images = ${Data.min[index]}"),
+          ),
+        );
+      },)
     );
   }
 }
