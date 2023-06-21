@@ -20,7 +20,7 @@ class _GallaryState extends State<Gallery> {
   }
 
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(backgroundColor: Colors.black,
         appBar: AppBar(
             backgroundColor: Colors.orange,
             title: Text(
@@ -28,7 +28,7 @@ class _GallaryState extends State<Gallery> {
               style: TextStyle(fontSize: 36, color: Colors.black),
             )),
         body: GridView.builder(
-          itemCount: Data.min[widget.index],
+          itemCount: Data.all[widget.index],
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3, crossAxisSpacing: 5, mainAxisSpacing: 5),
           itemBuilder: (context, index) {

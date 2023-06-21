@@ -17,10 +17,10 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(backgroundColor: Colors.black,
       appBar: AppBar(backgroundColor: Colors.orange,title: Text("Images",style: TextStyle(fontSize: 36,color: Colors.black)),),
       body: ListView.builder(
-        itemCount: 2,
+        itemCount: Data.Title.length,
         itemBuilder: (context, index) {
         return Card(
           child: ListTile(onTap: () {
@@ -29,9 +29,9 @@ class _HomepageState extends State<Homepage> {
             },));
           },
             tileColor: Colors.orange,
-            leading: CircleAvatar(backgroundImage: AssetImage(Data.main_image[index])),
+            leading: CircleAvatar(backgroundImage: AssetImage("Assets/Images/${index+1}/1.png")),
             title: Text(Data.Title[index],style: TextStyle(fontSize: 24),),
-            subtitle: Text("Total images = ${Data.min[index]}"),
+            subtitle: Text("Total images = ${Data.all[index]}"),
           ),
         );
       },)

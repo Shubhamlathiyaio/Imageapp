@@ -14,11 +14,11 @@ class Photo extends StatefulWidget {
 class _PhotoState extends State<Photo> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(backgroundColor: Colors.black,
       appBar: AppBar(backgroundColor: Colors.orange,title:Text(Data.Title[widget.ind],style: TextStyle(fontSize: 36,color: Colors.black),)),
       body: PageView.builder(
         controller: PageController(initialPage: widget.index),
-        itemCount: Data.min[widget.ind],
+        itemCount: Data.all[widget.ind],
         itemBuilder: (context, index) {
         return Container(height: double.infinity,width: double.infinity,child: Image.asset("Assets/Images/${widget.ind+1}/${index+1}.png"),);
       },),
