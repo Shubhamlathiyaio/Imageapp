@@ -13,22 +13,25 @@ class Gallery extends StatefulWidget {
 }
 
 class _GallaryState extends State<Gallery> {
+  List img=[];
+  String cate="";
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    img=Data.all[widget.index];
+    cate=Data.Title[widget.index];
   }
 
   Widget build(BuildContext context) {
     return Scaffold(backgroundColor: Colors.black,
         appBar: AppBar(
             backgroundColor: Colors.orange,
-            title: Text(
-              Data.Title[widget.index],
+            title: Text("$cate",
               style: TextStyle(fontSize: 36, color: Colors.black),
             )),
         body: GridView.builder(
-          itemCount: Data.all[widget.index],
+          itemCount: img.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3, crossAxisSpacing: 5, mainAxisSpacing: 5),
           itemBuilder: (context, index) {
@@ -36,7 +39,7 @@ class _GallaryState extends State<Gallery> {
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
-                    return Photo(widget.index, index);
+                    return Photo(img, index,cate);
                   },
                 ));
               },

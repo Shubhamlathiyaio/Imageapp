@@ -28,10 +28,10 @@ class _HomepageState extends State<Homepage> {
               return Gallery(index);
             },));
           },
-            tileColor: Colors.orange,
+            tileColor: Colors.orange[50],
             leading: CircleAvatar(backgroundImage: AssetImage("Assets/Images/${index+1}/1.png")),
             title: Text(Data.Title[index],style: TextStyle(fontSize: 24),),
-            subtitle: Text("Total images = ${Data.all[index]}"),
+            subtitle: Text("Total images = ${Data.len[index]}"),
           ),
         );
       },)
